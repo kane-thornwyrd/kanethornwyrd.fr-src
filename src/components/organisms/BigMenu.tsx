@@ -3,7 +3,7 @@ import React, { MouseEventHandler, useCallback, useState } from "react";
 
 import { SubBigMenu } from "./SubBigMenu";
 import styles from "./BigMenu.module.scss";
-import { TileButton } from "../atoms/TileButton";
+import { TileButton } from "@local/components/atoms/TileButton";
 import { titleDefault } from "@local/app/conf";
 
 const bigNavButtonClassnames = [
@@ -46,15 +46,15 @@ export const BigMenu = () => {
           className={`grid grid-cols-2 md:grid-cols-4 gap-3 place-items-center w-fit m-auto`}
         >
           <SubBigMenu
-            title="Code Projects"
-            onSelect={onSelect("Code Projects")}
-            selected={selected === "Code Projects"}
+            title="Portfolio"
+            onSelect={onSelect("Portfolio")}
+            selected={selected === "Portfolio"}
             classNames={bigNavButtonClassnames}
           >
             <TileButton
-              text={["Code","Projects"]}
-              dimensions={[112, 112]}
-              hoverClass="hover:fill-blue-700"
+              text="Portfolio"
+              dimensions={[96, 112]}
+              backgroundTouchColor="#b45309"
             />
           </SubBigMenu>
           <SubBigMenu
@@ -65,20 +65,8 @@ export const BigMenu = () => {
           >
             <TileButton
               text="Blog"
-              dimensions={[112, 112]}
-              hoverClass="hover:fill-emerald-700"
-            />
-          </SubBigMenu>
-          <SubBigMenu
-            title="Portfolio"
-            onSelect={onSelect("Portfolio")}
-            selected={selected === "Portfolio"}
-            classNames={bigNavButtonClassnames}
-          >
-            <TileButton
-              text="Portfolio"
-              dimensions={[112, 112]}
-              hoverClass="hover:fill-amber-700"
+              dimensions={[96, 112]}
+              backgroundTouchColor="#047857"
             />
           </SubBigMenu>
           <SubBigMenu
@@ -89,8 +77,32 @@ export const BigMenu = () => {
           >
             <TileButton
               text="Contact"
-              dimensions={[112, 112]}
-              hoverClass="hover:fill-lime-700"
+              dimensions={[96, 112]}
+              backgroundTouchColor="#4d7c0f"
+            />
+          </SubBigMenu>
+          <SubBigMenu
+            title="Personal Code Projects"
+            onSelect={onSelect("Personal Code Projects")}
+            selected={selected === "Personal Code Projects"}
+            classNames={bigNavButtonClassnames}
+          >
+            <TileButton
+              text={["Personal", "Code", "Projects"]}
+              dimensions={[96, 112]}
+              backgroundTouchColor="#0891b2"
+            />
+          </SubBigMenu>
+          <SubBigMenu
+            title="Tools"
+            onSelect={onSelect("Tools")}
+            selected={selected === "Tools"}
+            classNames={bigNavButtonClassnames}
+          >
+            <TileButton
+              text="Tools"
+              dimensions={[96, 112]}
+              backgroundTouchColor="#4338ca"
             />
           </SubBigMenu>
         </ul>

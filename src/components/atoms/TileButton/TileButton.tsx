@@ -78,7 +78,7 @@ const getProperColor = (
   hasTouch: boolean,
   isHover: boolean
 ): string => {
-  console.log([+!!def, +!!touch, +!!hover, +hasTouch, +isHover].join(''));
+  // console.log([+!!def, +!!touch, +!!hover, +hasTouch, +isHover].join(''));
   switch ([+!!def, +!!touch, +!!hover, +hasTouch, +isHover].join("")) {
     case "10000":
     case "10010":
@@ -128,7 +128,7 @@ export const TileButton: FC<{
 }> = ({
   text,
   dimensions,
-  isTouchDevice = false,
+  isTouchDevice = true,
   backgroundColor = "#a1a1aa",
   backgroundTouchColor = "",
   opacity = 1,

@@ -16,8 +16,10 @@
     "@tailwindcss/forms": "0.5.3",
     "@tailwindcss/line-clamp": "0.4.2",
     "@tailwindcss/typography": "0.5.9",
+    "dayjs": "1.11.7",
     "next": "13.1.5",
     "octokit": "2.0.14",
+    "ramda": "0.28.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "three": "0.149.0",
@@ -30,12 +32,14 @@
     "@storybook/addon-essentials": "^7.0.0-beta.36",
     "@storybook/addon-interactions": "^7.0.0-beta.36",
     "@storybook/addon-links": "^7.0.0-beta.36",
+    "@storybook/addon-postcss": "2.0.0",
     "@storybook/blocks": "^7.0.0-beta.36",
     "@storybook/nextjs": "^7.0.0-beta.36",
     "@storybook/react": "^7.0.0-beta.36",
     "@storybook/testing-library": "0.0.13",
     "@types/modernizr": "3.5.3",
     "@types/node": "18.11.18",
+    "@types/ramda": "0.28.22",
     "@types/react": "18.0.27",
     "@types/react-dom": "18.0.10",
     "@types/three": "0.148.1",
@@ -51,5 +55,8 @@
     "tailwindcss": "3.2.4",
     "tailwindcss-vertical-rhythm": "0.0.3",
     "url-loader": "4.1.1"
+  },
+  "resolutions": {
+    "webpack": "5"
   }
 }

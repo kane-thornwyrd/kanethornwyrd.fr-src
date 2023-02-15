@@ -46,7 +46,7 @@ a[href]:not(:where(
   [href^="/"]:not([href^="//"])
 )) {
   filter: drop-shadow(0 4px 3px rgb(0 0 0 / 0.07))
-  drop-shadow(0 2px 2px rgb(0,0,0));
+    drop-shadow(0 2px 2px rgb(0, 0, 0));
 }
 a[href]:not(:where(
   /* exclude hash only links */
@@ -55,7 +55,7 @@ a[href]:not(:where(
   [href^="/"]:not([href^="//"])
 )):after {
   filter: brightness(100) drop-shadow(0 4px 3px rgb(0 0 0 / 0.07))
-  drop-shadow(0 2px 2px rgb(0,0,0));
+    drop-shadow(0 2px 2px rgb(0, 0, 0));
   content: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik01LjIxOTY3IDE0Ljc4MDNDNS41MTI1NiAxNS4wNzMyIDUuOTg3NDQgMTUuMDczMiA2LjI4MDMzIDE0Ljc4MDNMMTMuNSA3LjU2MDY2VjEzLjI1QzEzLjUgMTMuNjY0MiAxMy44MzU4IDE0IDE0LjI1IDE0QzE0LjY2NDIgMTQgMTUgMTMuNjY0MiAxNSAxMy4yNVY1Ljc1QzE1IDUuMzM1NzkgMTQuNjY0MiA1IDE0LjI1IDVINi43NUM2LjMzNTc5IDUgNiA1LjMzNTc5IDYgNS43NUM2IDYuMTY0MjEgNi4zMzU3OSA2LjUgNi43NSA2LjVIMTIuNDM5M0w1LjIxOTY3IDEzLjcxOTdDNC45MjY3OCAxNC4wMTI2IDQuOTI2NzggMTQuNDg3NCA1LjIxOTY3IDE0Ljc4MDNaIiBmaWxsPSIjMEYxNzJBIi8+Cjwvc3ZnPgo=);
 }
 a[href]:hover:not(:where(
@@ -88,7 +88,7 @@ a[href]:hover:where(
 a {
   display: inline-block;
   padding: 0 0.25em;
-  border: 1px dashed #ffffff; 
+  border: 1px dashed #ffffff;
 }
 
 a:hover {
@@ -124,6 +124,17 @@ main h6 {
 
 .text-shadow {
   text-shadow: 0 0 0.75rem rgba(0, 0, 0, 0.25);
+}
+
+.bg-stripped {
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    #ffffff 10px,
+    #ffffff 20px
+  );
+  background-blend-mode: multiply;
 }
 
 .mega-menu {

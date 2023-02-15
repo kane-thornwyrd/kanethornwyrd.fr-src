@@ -18,6 +18,7 @@ const getViewportWidth = (): number =>
 
 export const useVantaBackground = (el: MutableRefObject<null>) => {
   const [vantaEffect, setVantaEffect] = useState(null);
+  window.THREE = THREE;
   useEffect(() => {
     const handleWindowResize = () => {
       if (!!vantaEffect) {
@@ -60,10 +61,7 @@ const VantaBackground: FC<{}> = () => {
   const myRef = useRef(null);
   useVantaBackground(myRef);
   return (
-      <div
-        className="z-0 top-0 bottom-0 left-0 right-0 fixed"
-        ref={myRef}
-      ></div>
+    <div className="z-0 top-0 bottom-0 left-0 right-0 fixed" ref={myRef}></div>
   );
 };
 

@@ -35,10 +35,19 @@ const meta: Meta<typeof TileButton> = {
 export default meta;
 type Story = StoryObj<typeof TileButton>;
 
-// More on writing stories with args: https://storybook.js.org/docs/7.0/react/writing-stories/args
-export const Primary: Story = {
+export const Desktop: Story = {
   args: {
     text: 'Test',
     dimensions: [128, 128],
+    backgroundTouchColor: '#94b979'
+  },
+};
+
+export const TouchDevice: Story = {
+  args: {
+    text: 'Test',
+    dimensions: [128, 128],
+    isTouchDevice: true,
+    backgroundTouchColor: '#94b979'
   },
 };

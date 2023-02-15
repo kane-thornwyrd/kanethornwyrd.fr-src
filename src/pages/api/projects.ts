@@ -8,7 +8,7 @@ const octokit = new Octokit({
   auth: process.env.GH_TOKEN,
 });
 
-type RawProjectInformations = {
+export type RawProjectInformations = {
   id: number;
   name: string;
   private: boolean;
@@ -46,10 +46,12 @@ type RawProjectInformations = {
   visibility: string;
   forks: number;
   watchers: number;
+  default_branch: string;
 };
 
-type ProjectInformations = {
-  id: number;
+export type ProjectInformations = {
+  id: number
+  logo_url: string;
   name: string;
   html_url: string;
   description: string;
@@ -112,11 +114,13 @@ const cleanupProject = ({
   topics,
   forks,
   watchers,
+  default_branch,
 }: RawProjectInformations): ProjectInformations => ({
   id,
   name,
+  logo_url: `${html_url}/raw/${default_branch}/logo.png`,
   html_url,
-  description,
+  description: description || "",
   fork,
   created_at,
   updated_at,
@@ -154,11 +158,15 @@ export default async function handler(
     data: { login },
   } = await octokit.rest.users.getAuthenticated();
 
-  const { data: projectRaw } = await octokit.rest.repos.listForUser({
+  const { data: projectsRaw } = await octokit.rest.repos.listForUser({
     username: login,
+    per_page: 100,
+    page: 1
   });
 
-  const projects = Array.from(projectRaw)
+  
+
+  const projects: ProjectInformations[] = Array.from(projectsRaw)
     .filter((d) => filterIsPublicProject(d as RawProjectInformations))
     .map((d) => cleanupProject(d as RawProjectInformations));
 

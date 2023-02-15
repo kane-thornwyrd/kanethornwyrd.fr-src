@@ -5,6 +5,8 @@ import { SubBigMenu } from "./SubBigMenu";
 import styles from "./BigMenu.module.scss";
 import { TileButton } from "@local/components/atoms/TileButton";
 import { titleDefault } from "@local/app/conf";
+import { ProjectsProvider } from "@local/stores/projects.store";
+import { PersonalCodeProjectsSection } from "./PersonalCodeProjectsSection";
 
 const bigNavButtonClassnames = [
   "w-28 h-28 text-xl font-black p-3 block place-self-center p-0 m-0",
@@ -81,18 +83,13 @@ export const BigMenu = () => {
               backgroundTouchColor="#4d7c0f"
             />
           </SubBigMenu>
-          <SubBigMenu
-            title="Personal Code Projects"
-            onSelect={onSelect("Personal Code Projects")}
-            selected={selected === "Personal Code Projects"}
-            classNames={bigNavButtonClassnames}
-          >
-            <TileButton
-              text={["Personal", "Code", "Projects"]}
-              dimensions={[96, 112]}
-              backgroundTouchColor="#0891b2"
+          <ProjectsProvider>
+            <PersonalCodeProjectsSection
+              onSelect={onSelect("Personal Code Projects")}
+              selected={selected === "Personal Code Projects"}
+              classNames={bigNavButtonClassnames}
             />
-          </SubBigMenu>
+          </ProjectsProvider>
           <SubBigMenu
             title="Tools"
             onSelect={onSelect("Tools")}

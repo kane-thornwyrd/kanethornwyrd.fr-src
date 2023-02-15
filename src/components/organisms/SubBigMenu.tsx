@@ -1,8 +1,10 @@
-import React, { FC, MouseEventHandler, PropsWithChildren } from "react";
+"use client";
+import React, { FC, MouseEventHandler, PropsWithChildren, useEffect, useState } from "react";
 import Image from "next/image";
 import XMarkIcon from "@heroicons/react/20/solid/XMarkIcon";
 
 import { titleDefault } from "@local/app/conf";
+import { ProjectList } from "./ProjectList";
 
 export const SubBigMenu: FC<
   PropsWithChildren & {
@@ -12,6 +14,9 @@ export const SubBigMenu: FC<
     classNames?: string;
   }
 > = ({ title, onSelect, selected, classNames, children }) => {
+  const [data, setData] = useState({projects: []})
+  const [isLoading, setLoading] = useState(false)
+
   return (
     <li className={`toggleable flex items-center`}>
       <input
@@ -103,7 +108,7 @@ export const SubBigMenu: FC<
               <a href="#">Category One Sublink</a>
             </li>
           </ul>
-          <ul className="px-4 w-full sm:w-1/2 lg:w-1/4 border-gray-600 pb-6 pt-6 lg:pt-3">
+          <ul className="px-4 w-full lg:w-1/2 border-gray-600 pb-6 pt-6 lg:pt-3">
             <h3 className="font-bold text-xl  text-bold mb-2">Heading 4</h3>
             <li className="pt-3">
               <Image
@@ -114,31 +119,10 @@ export const SubBigMenu: FC<
               />
             </li>
           </ul>
-          <ul className="px-4 w-full lg:w-1/2 border-gray-600 pb-6 pt-6 lg:pt-12">
-            <h3 className="font-bold text-xl text-bold mb-2">Heading 4</h3>
-            <p>
-              Pellentesque habitant morbi tristique senectus et netus et
-              malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat
-              vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit
-              amet quam egestas semper. Aenean ultricies mi vitae est. Mauris
-              placerat eleifend leo. Quisque sit amet est et sapien ullamcorper
-              pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae,
-              ornare sit amet, <a href="#">wisi</a>. Aenean fermentum, elit eget tincidunt
-              condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac
-              dui. Donec non enim in turpis pulvinar facilisis. Ut felis.
-              Praesent dapibus, neque id cursus faucibus, tortor neque egestas
-              augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam
-              dui mi, tincidunt quis, accumsan porttitor, facilisis luctus,
-              metus
-            </p>
-            <p>
-              Pellentesque habitant morbi tristique senectus et netus et
-              malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat
-              vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit
-              amet quam egestas semper. Aenean ultricies mi vitae est. Mauris
-              placerat eleifend leo.
-            </p>
-          </ul>
+          <div className="px-4 w-full lg:w-1/2 border-gray-600 pb-6 pt-6 lg:pt-12">
+            <h3 className="font-bold text-xl text-bold mb-2">Projects</h3>
+            <ProjectList />
+          </div>
         </div>
       </div>
     </li>

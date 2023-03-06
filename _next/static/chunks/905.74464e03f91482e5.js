@@ -1,1 +1,0 @@
-(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[905],{7905:function(e){e.exports={style:{fontFamily:"'__Teko_b3096e', '__Teko_Fallback_b3096e'",fontWeight:400,fontStyle:"normal"},className:"__className_b3096e",variable:"__variable_b3096e"}}}]);

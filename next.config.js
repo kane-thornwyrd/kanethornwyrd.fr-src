@@ -14,6 +14,13 @@ const nextConfig = {
   experimental: {
     appDir: true,
   },
+  output: 'standalone',
+  exportPathMap: async function (
+    defaultPathMap,
+    { dev, dir, outDir, distDir, buildId }
+  ) {
+    return defaultPathMap;
+  },
   trailingSlash: true,
   images: {
     remotePatterns: [
@@ -31,6 +38,7 @@ const nextConfig = {
       },
     ],
   },
+  reactStrictMode: true,
   webpack(config, { isServer }) {
     // audio support
     config.module.rules.push({
@@ -55,12 +63,12 @@ const nextConfig = {
 }
 
 // manage i18n
-if (process.env.EXPORT !== 'true') {
+// if (process.env.EXPORT !== 'true') {
   nextConfig.i18n = {
-    locales: ['en', 'jp'],
-    defaultLocale: 'en',
+    locales: ['fr'],
+    defaultLocale: 'fr',
   }
-}
+// }
 
 const KEYS_TO_OMIT = ['webpackDevMiddleware', 'configOrigin', 'target', 'analyticsId', 'webpack5', 'amp', 'assetPrefix']
 
